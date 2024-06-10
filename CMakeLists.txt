@@ -817,6 +817,8 @@ IF(LINUX AND NOT LINUX_ALPINE)
   ENDIF()
 ENDIF()
 
+INCLUDE (cmake/ccache.cmake)
+
 INCLUDE(CMakePushCheckState)
 
 # Add macros
@@ -1089,6 +1091,9 @@ MACRO(DISABLE_MISSING_PROFILE_WARNING)
     ENDIF()
   ENDIF()
 ENDMACRO()
+
+STRING_APPEND(CMAKE_C_FLAGS "-Wno-enum-constexpr-conversion")
+STRING_APPEND(CMAKE_CXX_FLAGS "-Wno-enum-constexpr-conversion")
 
 OPTION(OPTIMIZE_SANITIZER_BUILDS
   "Add -O1 -fno-inline to sanitizer builds" ON)

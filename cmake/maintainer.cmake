@@ -176,6 +176,7 @@ IF(MY_COMPILER_IS_CLANG)
   # -Wweak-template-vtables
   # -Wweak-vtables
   # -Wzero-as-null-pointer-constant
+  MY_ADD_CXX_WARNING_FLAG("Wno-enum-constexpr-conversion")
 ENDIF()
 
 # Turn on Werror (warning => error) when using maintainer mode.
